@@ -3,6 +3,12 @@
 To check : Goto  src -> App.jsx
 Deployed Link :  https://peppy-biscuit-f4cdd1.netlify.app/
 
+### Video Link
+
+(https://github.com/dishant-08/zeptoassignment/assets/60565337/5c8dfcf2-54ed-4aac-b8dc-cd159232b3e3
+)
+
+
 ### Bonus Task
 
 Highlight Last Chip on Backspace
@@ -31,6 +37,14 @@ useEffect(() => {
 
 
 ```
+### ScreenShots
+
+![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/ad7524e8-a5ad-44bc-b491-17438076b1ff)
+
+
+![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/238aa283-f7de-4b84-a2cd-428989c6380a)
+
+
 
 
 ### Specifications
