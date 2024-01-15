@@ -61,11 +61,9 @@ function App() {
     }
   };
 
-  const toggleList = () => {
+  const toggleListVisibility = () => {
     setShowList(!showList);
   };
-
-  console.log(highlightedChip);
 
   useEffect(() => {
     document.addEventListener("keydown", handleBackspacePress);
@@ -101,19 +99,23 @@ function App() {
             type="text"
             value={input}
             onChange={handleInputChange}
-            onClick={toggleList}
+            onClick={toggleListVisibility}
             className="border-b border-b-blue-500 focus:outline-none w-72 p-2"
           />
         </div>
         {showList && (
           <div>
             {allItems
-              .filter((item) => !chips.find((chip) => chip.id === item.id))
+              .filter(
+                (item) =>
+                  !chips.find((chip) => chip.id === item.id) &&
+                  item.chip.toLowerCase().includes(input.toLowerCase())
+              )
               .map((item) => (
                 <div
                   key={item.id}
                   onClick={() => handleItemClick(item)}
-                  className="p-2 cursor-pointer flex "
+                  className="p-2 cursor-pointer flex"
                 >
                   <img
                     src={item.image}
