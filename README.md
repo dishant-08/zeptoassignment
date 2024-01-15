@@ -5,8 +5,8 @@ Deployed Link :  https://peppy-biscuit-f4cdd1.netlify.app/
 
 ### Video Link
 
-(https://github.com/dishant-08/zeptoassignment/assets/60565337/5c8dfcf2-54ed-4aac-b8dc-cd159232b3e3
-)
+https://github.com/dishant-08/zeptoassignment/assets/60565337/5c8dfcf2-54ed-4aac-b8dc-cd159232b3e3
+
 
 
 ### Bonus Task
