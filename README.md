@@ -1,6 +1,7 @@
 ## Task Implementation
 
 To check : Goto  src -> App.jsx
+Deployed Link :  https://peppy-biscuit-f4cdd1.netlify.app/
 
 ### Bonus Task
 
