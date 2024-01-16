@@ -74,18 +74,30 @@ const toggleListVisibility = () => {
 As you type, the list dynamically shows only items that match what you're typing.
 // Code snippet to filter items based on user input
 ``` jsx
- {showList && (
-  <div>
-    {allItems
-      .filter((item) => !chips.find((chip) => chip.id === item.id))
-      .filter((item) =>
-        item.chip.toLowerCase().includes(input.toLowerCase())
-      )
-      .map((item) => (
-        // ... render list items
-      ))}
-  </div>
-)}
+  {showList && (
+          <div>
+            {allItems
+              .filter(
+                (item) =>
+                  !chips.find((chip) => chip.id === item.id) &&
+                  item.chip.toLowerCase().includes(input.toLowerCase())
+              )
+              .map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => handleItemClick(item)}
+                  className="p-2 cursor-pointer flex"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.chip}
+                    className="w-8 h-8 mr-2 rounded-full"
+                  />
+                  {item.chip} - {item.email}
+                </div>
+              ))}
+          </div>
+        )}
 ```
  #### 3. Item to Chip Conversion
 Clicking on an item turns it into a chip at the top, and the input field adjusts automatically.
