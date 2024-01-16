@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import alogo from "./assets/alogo.png";
 import nlogo from "./assets/nlogo.png";
+import dlogo from "./assets/dlogo.png";
 import mehalogo from "./assets/mehalogo.png";
 
 function App() {
@@ -19,13 +20,13 @@ function App() {
     {
       id: 2,
       chip: "Nick Giannopoulos",
-      email: "nickGiannopoulos@gmail.com",
+      email: "nick@gmail.com",
       image: nlogo,
     },
     {
       id: 3,
-      chip: "Anita Gros",
-      email: "anitaGros@gmail.com",
+      chip: "Anita Giannopoulos",
+      email: "anita@gmail.com",
       image: alogo,
     },
     {
@@ -33,6 +34,18 @@ function App() {
       chip: "Megan Smith",
       email: "megansmith@gmail.com",
       image: mehalogo,
+    },
+    {
+      id: 5,
+      chip: "Dishant Sahu",
+      email: "dishant.sahu@gmail.com",
+      image: dlogo,
+    },
+    {
+      id: 6,
+      chip: "David Smith",
+      email: "david.smith@gmail.com",
+      image: dlogo,
     },
   ];
   const [highlightedChip, setHighlightedChip] = useState(null);
@@ -73,62 +86,76 @@ function App() {
   }, [chips, input, highlightedChip]);
 
   return (
-    <div className="w-screen h-screen">
-      <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-wrap">
-          {chips.map((chip) => (
-            <div
-              key={chip.id}
-              className={`m-1 p-2 rounded flex items-center ${
-                highlightedChip === chip ? "bg-yellow-500" : "bg-gray-200"
-              }`}
-            >
-              <img
-                src={chip.image}
-                alt={chip.chip}
-                className="w-8 h-8 mr-2 rounded-full"
-              />
-              <div>{chip.chip}</div>
-              <button onClick={() => handleChipRemove(chip)} className="ml-2">
-                X
-              </button>
-            </div>
-          ))}
-
-          <input
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-            onClick={toggleListVisibility}
-            className="border-b border-b-blue-500 focus:outline-none w-72 p-2"
-          />
-        </div>
-        {showList && (
-          <div>
-            {allItems
-              .filter(
-                (item) =>
-                  !chips.find((chip) => chip.id === item.id) &&
-                  item.chip.toLowerCase().includes(input.toLowerCase())
-              )
-              .map((item) => (
+    <>
+      <header className="text-blue-500 font-bold text-center flex items-center justify-center text-5xl mt-20 ">
+        Pick Users
+      </header>
+      <div className="  h-screen flex justify-center items-center   ">
+        <div className=" border-b-2 border-blue-600 w-1/2 ">
+          <div className="flex flex-col  ">
+            <div className="flex flex-wrap  ">
+              {chips.map((chip) => (
                 <div
-                  key={item.id}
-                  onClick={() => handleItemClick(item)}
-                  className="p-2 cursor-pointer hover:bg-slate-200 flex"
+                  key={chip.id}
+                  className={`m-1 p-2 rounded-full flex items-center ${
+                    highlightedChip === chip ? "bg-yellow-500" : "bg-gray-200"
+                  }`}
                 >
                   <img
-                    src={item.image}
-                    alt={item.chip}
+                    src={chip.image}
+                    alt={chip.chip}
                     className="w-8 h-8 mr-2 rounded-full"
                   />
-                  {item.chip} - {item.email}
+                  <div className="font-semibold">{chip.chip}</div>
+                  <button
+                    onClick={() => handleChipRemove(chip)}
+                    className="ml-2"
+                  >
+                    X
+                  </button>
                 </div>
               ))}
+
+              <div className="relative items-center justify-center ">
+                <input
+                  type="text"
+                  value={input}
+                  placeholder="Add new User"
+                  onChange={handleInputChange}
+                  onClick={toggleListVisibility}
+                  className="focus:outline-none  py-4 pl-2 "
+                />
+                {showList && (
+                  <div className="absolute top-full left-0 w-80 max-h-32 overflow-y-auto overflow-x-hidden scrollbar bg-white border-black shadow-xl mt-1">
+                    {allItems
+                      .filter(
+                        (item) =>
+                          !chips.find((chip) => chip.id === item.id) &&
+                          item.chip.toLowerCase().includes(input.toLowerCase())
+                      )
+                      .map((item) => (
+                        <div
+                          key={item.id}
+                          onClick={() => handleItemClick(item)}
+                          className="p-2 cursor-pointer hover:bg-slate-200 flex"
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.chip}
+                            className="w-8 h-8 mr-2 rounded-full"
+                          />
+                          <span className="font-semibold">{item.chip}</span> -{" "}
+                          <span className="text-gray-800">{item.email}</span>
+                        </div>
+                      ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
