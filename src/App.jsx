@@ -97,14 +97,14 @@ function App() {
               {chips.map((chip) => (
                 <div
                   key={chip.id}
-                  className={`m-1 p-2 rounded-full flex items-center ${
+                  className={`m-1 p-2 transition ease-in-out duration-200 rounded-full flex items-center ${
                     highlightedChip === chip ? "bg-yellow-500" : "bg-gray-200"
                   }`}
                 >
                   <img
                     src={chip.image}
                     alt={chip.chip}
-                    className="w-8 h-8 mr-2 rounded-full"
+                    className="w-8 h-8 mr-2  rounded-full"
                   />
                   <div className="font-semibold">{chip.chip}</div>
                   <button
@@ -126,7 +126,7 @@ function App() {
                   className="focus:outline-none  py-4 pl-2 "
                 />
                 {showList && (
-                  <div className="absolute top-full left-0 w-80 max-h-32 overflow-y-auto overflow-x-hidden scrollbar bg-white border-black shadow-xl mt-1">
+                  <div className="absolute top-full left-0 w-80 max-h-32 overflow-y-auto overflow-x-hidden scrollbar bg-white border-black rounded-xl shadow-xl mt-1">
                     {allItems
                       .filter(
                         (item) =>
@@ -137,7 +137,7 @@ function App() {
                         <div
                           key={item.id}
                           onClick={() => handleItemClick(item)}
-                          className="p-2 cursor-pointer hover:bg-slate-200 flex"
+                          className="p-2 cursor-pointer transition ease-in-out duration-200 hover:bg-slate-200 flex"
                         >
                           <img
                             src={item.image}
