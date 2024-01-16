@@ -81,30 +81,32 @@ const toggleListVisibility = () => {
 As you type, the list dynamically shows only items that match what you're typing.
 // Code snippet to filter items based on user input
 ``` jsx
-  {showList && (
-          <div>
-            {allItems
-              .filter(
-                (item) =>
-                  !chips.find((chip) => chip.id === item.id) &&
-                  item.chip.toLowerCase().includes(input.toLowerCase())
-              )
-              .map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => handleItemClick(item)}
-                  className="p-2 cursor-pointer flex"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.chip}
-                    className="w-8 h-8 mr-2 rounded-full"
-                  />
-                  {item.chip} - {item.email}
-                </div>
-              ))}
-          </div>
-        )}
+{showList && (
+  <div className="bg-white border-black shadow-xl">
+    {allItems
+      .filter(
+        (item) =>
+          !chips.find((chip) => chip.id === item.id) &&
+          item.chip.toLowerCase().includes(input.toLowerCase())
+      )
+      .map((item) => (
+        <div
+          key={item.id}
+          onClick={() => handleItemClick(item)}
+          className="p-2 cursor-pointer hover:bg-slate-200 flex"
+        >
+          <img
+            src={item.image}
+            alt={item.chip}
+            className="w-8 h-8 mr-2 rounded-full"
+          />
+          <span className="font-semibold">{item.chip}</span> -{" "}
+          <span className="text-gray-800">{item.email}</span>
+        </div>
+      ))}
+  </div>
+)}
+
 ```
  #### 3. Item to Chip Conversion
 Clicking on an item turns it into a chip at the top, and the input field adjusts automatically.
@@ -116,6 +118,7 @@ const handleItemClick = (item) => {
   setInput("");
   setShowList(false);
 };
+
 ```
 #### 4. Remove Chip and Add Back to List
 Each chip has an "X" icon. Clicking it removes the chip and adds the item back to the list.
@@ -126,6 +129,7 @@ const handleChipRemove = (chip) => {
   setChips(chips.filter((c) => c !== chip));
   setInput("");
 };
+
 ```
 
 ### Clean Code
