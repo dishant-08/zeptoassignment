@@ -115,7 +115,7 @@ function App() {
                 <div
                   key={item.id}
                   onClick={() => handleItemClick(item)}
-                  className="p-2 cursor-pointer flex"
+                  className="p-2 cursor-pointer hover:bg-slate-200 flex"
                 >
                   <img
                     src={item.image}
