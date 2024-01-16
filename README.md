@@ -42,10 +42,11 @@ useEffect(() => {
 ```
 ### ScreenShots
 
-![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/ad7524e8-a5ad-44bc-b491-17438076b1ff)
+![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/b94ffcff-50e1-43d2-876c-8811412dc471)
 
 
-![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/238aa283-f7de-4b84-a2cd-428989c6380a)
+![image](https://github.com/dishant-08/zeptoassignment/assets/60565337/822dcc32-87f4-4077-b6e9-63dc9618fdc1)
+
 
 
 
