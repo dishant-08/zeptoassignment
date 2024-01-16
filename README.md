@@ -5,7 +5,10 @@ Deployed Link :  https://peppy-biscuit-f4cdd1.netlify.app/
 
 ### Video Link
 
-https://github.com/dishant-08/zeptoassignment/assets/60565337/5c8dfcf2-54ed-4aac-b8dc-cd159232b3e3
+
+
+https://github.com/dishant-08/zeptoassignment/assets/60565337/4a7573c2-f6d8-4c71-a3c5-1e6d4b7bd5e2
+
 
 
 
@@ -55,6 +58,7 @@ When you click on the input field, a list of items appears.
 
 ```jsx
 // Code snippet to handle input click
+// Code snippet to handle input click
 const toggleListVisibility = () => {
   setShowList(!showList);
 };
@@ -63,10 +67,12 @@ const toggleListVisibility = () => {
 <input
   type="text"
   value={input}
+  placeholder="Add new User"
   onChange={handleInputChange}
   onClick={toggleListVisibility}
-  className="border-b border-b-blue-500 focus:outline-none p-2"
+  className="focus:outline-none p-2"
 />
+
 
 ```
 
