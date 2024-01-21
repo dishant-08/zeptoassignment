@@ -133,21 +133,37 @@ function App() {
                           !chips.find((chip) => chip.id === item.id) &&
                           item.chip.toLowerCase().includes(input.toLowerCase())
                       )
-                      .map((item) => (
-                        <div
-                          key={item.id}
-                          onClick={() => handleItemClick(item)}
-                          className="p-2 cursor-pointer transition ease-in-out duration-200 hover:bg-slate-200 flex"
-                        >
-                          <img
-                            src={item.image}
-                            alt={item.chip}
-                            className="w-8 h-8 mr-2 rounded-full"
-                          />
-                          <span className="font-semibold">{item.chip}</span> -{" "}
-                          <span className="text-gray-800">{item.email}</span>
-                        </div>
-                      ))}
+                      .map((item) => {
+                        const index = item.chip
+                          .toLowerCase()
+                          .indexOf(input.toLowerCase());
+                        const pre = item.chip.slice(0, index);
+                        const highlight = item.chip.slice(
+                          index,
+                          index + input.length
+                        );
+                        const post = item.chip.slice(index + input.length);
+                        return (
+                          <div
+                            key={item.id}
+                            onClick={() => handleItemClick(item)}
+                            className="p-2 cursor-pointer transition ease-in-out duration-200 hover:bg-slate-200 flex"
+                          >
+                            <img
+                              src={item.image}
+                              alt={item.chip}
+                              className="w-8 h-8 mr-2 rounded-full"
+                            />
+                            <div className="font-semibold  ">
+                              <span>{pre}</span>
+                              <span className="text-blue-500">{highlight}</span>
+                              <span>{post}</span>
+                            </div>{" "}
+                            -{" "}
+                            <span className="text-gray-800">{item.email}</span>
+                          </div>
+                        );
+                      })}
                   </div>
                 )}
               </div>
